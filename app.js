@@ -7,6 +7,7 @@ const cargoInput = document.getElementById("cargo");
 const regiaoInput = document.getElementById("regiao");
 const grupoRegiao = document.getElementById("grupoRegiao");
 const cpfInput = document.getElementById("cpf");
+const numeroVotoInput = document.getElementById("numero_voto");
 const emailInput = document.getElementById("email");
 const arquivoInput = document.getElementById("carta");
 const mensagem = document.getElementById("mensagem");
