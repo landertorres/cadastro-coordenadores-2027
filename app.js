@@ -215,6 +215,7 @@ form.addEventListener("submit", async function (event) {
       regiao: regiaoInput.value || null,
       nome_completo: document.getElementById("nome").value.trim(),
       cpf: somenteNumeros(cpfInput.value),
+      numero_voto: numeroVotoInput.value.trim(),
       email: emailInput.value.trim().toLowerCase(),
       consentimento: document.getElementById("consentimento").checked,
       arquivo: {
