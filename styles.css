@@ -33,7 +33,7 @@ body {
 }
 
 .cabecalho {
-  padding: 32px 20px;
+  padding: 6px 6px;
   background: var(--verde);
   color: #fff;
   text-align: center;
@@ -43,7 +43,7 @@ body {
 .cabecalho h1 {
   margin: 0;
   font-size: clamp(20px, 4vw, 29px);
-  line-height: 1.3;
+  line-height: 1.0;
 }
 
 .cabecalho h2 {
@@ -67,7 +67,7 @@ form {
 .aviso {
   margin-top: 0;
   color: #59675f;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 section {
