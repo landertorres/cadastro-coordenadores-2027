@@ -31,59 +31,14 @@
         </select>
 
         <label for="distrito">Distrito *</label>
-       <select
-  id="distrito"
-  name="distrito"
-  required
->
-  <option value="">Selecione o distrito</option>
-  <option>13 DE SETEMBRO</option>
-  <option>ALTO ALEGRE</option>
-  <option>ARAÚJO COSTA</option>
-  <option>ASA BRANCA</option>
-  <option>BARCELOS</option>
-  <option>BARREIRINHA</option>
-  <option>BARREIRINHA II</option>
-  <option>BEIJA FLOR</option>
-  <option>BELA VISTA</option>
-  <option>BOA VISTA - CENTRAL</option>
-  <option>BOA VISTA DO RAMOS</option>
-  <option>BONFIM</option>
-  <option>CAMPOS ELISEOS</option>
-  <option>CARACARAÍ</option>
-  <option>CARANÃ</option>
-  <option>CAROEBE</option>
-  <option>CAÇARI</option>
-  <option>CENTRAL - AAMAR</option>
-  <option>IAAI - RIO PRETO DA EVA</option>
-  <option>ITACOATIARA</option>
-  <option>ITAPIRANGA</option>
-  <option>LIBERDADE</option>
-  <option>MONTE DAS OLIVEIRAS</option>
-  <option>MONTE SINAI</option>
-  <option>MUCAJAI</option>
-  <option>NOVA CANAÃ</option>
-  <option>NOVA CIDADE</option>
-  <option>NOVA COLINA</option>
-  <option>OSVALDO FROTA</option>
-  <option>PACARAIMA</option>
-  <option>PALMARES</option>
-  <option>PARINTINS CENTRAL</option>
-  <option>PARQUE 10</option>
-  <option>PARQUE SOLIMÕES</option>
-  <option>PARQUE SÃO PEDRO</option>
-  <option>PRESIDENTE FIGUEIREDO I</option>
-  <option>PRESIDENTE FIGUEIREDO II</option>
-  <option>REDENÇÃO I</option>
-  <option>REDENÇÃO II</option>
-  <option>RIO PRETO DA EVA</option>
-  <option>RORAINÓPOLIS</option>
-  <option>SANTA ETELVINA</option>
-  <option>SANTA TEREZA</option>
-  <option>SILVIO BOTELHO</option>
-  <option>TANCREDO NEVES</option>
-  <option>URUCARÁ</option>
-</select>
+        <input
+          id="distrito"
+          name="distrito"
+          type="text"
+          maxlength="120"
+          placeholder="Digite o nome do distrito"
+          required
+        >
 
         <label for="cargo">Cargo *</label>
         <select id="cargo" name="cargo" required>
@@ -154,22 +109,23 @@
           required
         >
         <small id="erroCpf" class="erro"></small>
-
+    <div class="form-group">
         <label for="numero_voto">
-  Número/Ano do Voto da Carta de Recomendação *
-</label>
+        Número/Ano do Voto da Carta de Recomendação *
+     </label>
 
-<input
-  id="numero_voto"
-  name="numero_voto"
-  type="text"
-  placeholder="Ex.: 025/2027"
-  pattern="[0-9]+/(2026|2027)"
-  title="Informe o número do voto seguido de /2026 ou /2027."
-  maxlength="12"
-  required
->
-        
+    <input
+    id="numero_voto"
+    name="numero_voto"
+    type="text"
+    placeholder="Ex.: 025/2027"
+    pattern="[0-9]+/(2026|2027)"
+    title="Informe o número do voto seguido de /2026 ou /2027."
+    maxlength="12"
+    required
+  >
+</div>
+
         <label for="email">E-mail *</label>
         <input
           id="email"
@@ -184,19 +140,31 @@
         <small id="erroEmail" class="erro"></small>
       </section>
 
-      <section>
-        <h3>3. Documento obrigatório</h3>
+      
+<section>
+  <h3>3. Documentos obrigatórios</h3>
 
-        <label for="carta">Carta de recomendação *</label>
-        <input
-          id="carta"
-          name="carta_recomendacao"
-          type="file"
-          accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
-          required
-        >
-        <small>Formatos aceitos: PDF, JPG e PNG. Tamanho máximo: 5 MB.</small>
-      </section>
+  <label for="carta">Carta de recomendação *</label>
+  <input
+    id="carta"
+    name="carta_recomendacao"
+    type="file"
+    accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+    required
+  >
+  <small>Formatos aceitos: PDF, JPG e PNG. Tamanho máximo: 5 MB.</small>
+
+  <label for="antecedentes">Antecedentes Criminais *</label>
+  <input
+    id="antecedentes"
+    name="antecedentes_criminais"
+    type="file"
+    accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+    required
+  >
+  <small>Formatos aceitos: PDF, JPG e PNG. Tamanho máximo: 5 MB.</small>
+</section>
+
 
       <section class="consentimento">
         <label class="checkbox-label" for="consentimento">
@@ -215,14 +183,14 @@
             </section>
 
             <button type="submit" id="btnEnviar">
-                Enviar cadastro
+                Validar cadastro
             </button>
 
       <p id="mensagem" role="status" aria-live="polite"></p>
     </form>
 
     <footer>
-      2026 - Coordenação Geral SGC · AAmaR
+      Associação Amazonas Roraima · Cadastro 2027
     </footer>
   </main>
 

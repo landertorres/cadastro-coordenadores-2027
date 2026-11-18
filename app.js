@@ -10,10 +10,10 @@ const cpfInput = document.getElementById("cpf");
 const numeroVotoInput = document.getElementById("numero_voto");
 const emailInput = document.getElementById("email");
 const arquivoInput = document.getElementById("carta");
+const antecedentesInput = document.getElementById("antecedentes");
 const mensagem = document.getElementById("mensagem");
 const erroCpf = document.getElementById("erroCpf");
 const erroEmail = document.getElementById("erroEmail");
-
 const TAMANHO_MAXIMO = 5 * 1024 * 1024;
 const TIPOS_PERMITIDOS = [
   "application/pdf",
@@ -177,6 +177,15 @@ form.addEventListener("submit", async function (event) {
     return;
   }
 
+  const arquivoAntecedentes = antecedentesInput.files[0];
+  const erroAntecedentes = validarArquivo(arquivoAntecedentes);
+
+if (erroAntecedentes) {
+  mostrarMensagem("Antecedentes Criminais: " + erroAntecedentes, false);
+  antecedentesInput.focus();
+  return;
+}
+
   const exigeRegiao = ["REGIONAL", "DISTRITAL"].includes(
     cargoInput.value
   );
@@ -209,6 +218,22 @@ form.addEventListener("submit", async function (event) {
       leitor.readAsDataURL(arquivo);
     });
 
+    const base64Antecedentes = await new Promise((resolve, reject) => {
+  
+    const leitor = new FileReader();
+
+  leitor.onload = () => {
+    const resultado = String(leitor.result);
+    resolve(resultado.split(",")[1]);
+  };
+
+  leitor.onerror = () => {
+    reject(new Error("Não foi possível ler os Antecedentes Criminais."));
+  };
+
+  leitor.readAsDataURL(arquivoAntecedentes);
+});
+
     const payload = {
       departamento: document.getElementById("departamento").value,
       distrito: document.getElementById("distrito").value,
@@ -216,15 +241,21 @@ form.addEventListener("submit", async function (event) {
       regiao: regiaoInput.value || null,
       nome_completo: document.getElementById("nome").value.trim(),
       cpf: somenteNumeros(cpfInput.value),
-      numero_voto: numeroVotoInput.value.trim(),
+      numero_voto: numeroVotoInput.value.trim(),    
       email: emailInput.value.trim().toLowerCase(),
       consentimento: document.getElementById("consentimento").checked,
       arquivo: {
-        nome: arquivo.name,
-        mimeType: arquivo.type,
-        base64: base64
-      }
-    };
+        
+arquivo: {
+  nome: arquivo.name,
+  mimeType: arquivo.type,
+  base64: base64
+},
+arquivo_antecedentes: {
+  nome: arquivoAntecedentes.name,
+  mimeType: arquivoAntecedentes.type,
+  base64: base64Antecedentes
+}
 
     const resposta = await fetch(SUPABASE_FUNCTION_URL, {
       method: "POST",
