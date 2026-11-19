@@ -240,3 +240,21 @@ header h4 {
   margin-top: 0;
   line-height: 1.3;
 }
+.tela-sucesso {
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.tela-sucesso h2,
+.tela-sucesso p {
+  text-align: center;
+}
+
+.tela-sucesso .assinatura {
+  margin-top: 25px;
+  line-height: 1.8;
+}
+
+.icone-sucesso {
+  margin: 0 auto 15px;
+}
