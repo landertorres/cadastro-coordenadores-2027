@@ -263,7 +263,7 @@ header h4 {
 .imagem-cabecalho {
   display: block;
   width: 70%;
-  max-width: 600px;
+  max-width: 200px;
   height: auto;
   margin: 0 auto;
 }
