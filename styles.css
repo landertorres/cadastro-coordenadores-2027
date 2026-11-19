@@ -217,3 +217,26 @@ footer {
     padding: 20px 16px;
   }
 }
+
+// cabeçalho novo
+
+header {
+  text-align: center;
+  padding: 20px 10px 12px;
+}
+
+header h1 {
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+header h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+header h4 {
+  margin-top: 0;
+  line-height: 1.3;
+}
