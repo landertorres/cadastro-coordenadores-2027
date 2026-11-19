@@ -234,28 +234,29 @@ if (erroAntecedentes) {
   leitor.readAsDataURL(arquivoAntecedentes);
 });
 
-    const payload = {
-      departamento: document.getElementById("departamento").value,
-      distrito: document.getElementById("distrito").value,
-      cargo: cargoInput.value,
-      regiao: regiaoInput.value || null,
-      nome_completo: document.getElementById("nome").value.trim(),
-      cpf: somenteNumeros(cpfInput.value),
-      numero_voto: numeroVotoInput.value.trim(),    
-      email: emailInput.value.trim().toLowerCase(),
-      consentimento: document.getElementById("consentimento").checked,
-      arquivo: {
-        
-arquivo: {
-  nome: arquivo.name,
-  mimeType: arquivo.type,
-  base64: base64
-},
-arquivo_antecedentes: {
-  nome: arquivoAntecedentes.name,
-  mimeType: arquivoAntecedentes.type,
-  base64: base64Antecedentes
-}
+     const payload = {
+  departamento: document.getElementById("departamento").value,
+  distrito: document.getElementById("distrito").value,
+  cargo: cargoInput.value,
+  regiao: regiaoInput.value || null,
+  nome_completo: document.getElementById("nome").value.trim(),
+  cpf: somenteNumeros(cpfInput.value),
+  numero_voto: numeroVotoInput.value.trim(),
+  email: emailInput.value.trim().toLowerCase(),
+  consentimento: document.getElementById("consentimento").checked,
+
+  arquivo: {
+    nome: arquivo.name,
+    mimeType: arquivo.type,
+    base64: base64
+  },
+
+  arquivo_antecedentes: {
+    nome: arquivoAntecedentes.name,
+    mimeType: arquivoAntecedentes.type,
+    base64: base64Antecedentes
+  }
+};
 
     const resposta = await fetch(SUPABASE_FUNCTION_URL, {
       method: "POST",
@@ -289,6 +290,10 @@ arquivo_antecedentes: {
 
     form.reset();
     atualizarRegiao();
+
+    form.hidden = true;
+
+    document.getElementById("telaSucesso").hidden = false;
 
   } catch (erro) {
     console.error("Erro no envio:", erro);
