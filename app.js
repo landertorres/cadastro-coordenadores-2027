@@ -293,6 +293,15 @@ if (erroAntecedentes) {
 
     form.hidden = true;
 
+    const dataHoraCadastro = new Date();
+
+document.getElementById("dataCadastro").textContent =
+  "Data do cadastro: " + dataHoraCadastro.toLocaleDateString("pt-BR") +
+  " às " + dataHoraCadastro.toLocaleTimeString("pt-BR", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+    
     document.getElementById("telaSucesso").hidden = false;
 
   } catch (erro) {
